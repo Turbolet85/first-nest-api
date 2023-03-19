@@ -1,16 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
 
-// class ProductCharacteristic {
-// 	@Prop()
-// 	name: string;
-// 	@Prop()
-// 	value: string;
-// }
+export type ProductDocument = HydratedDocument<ProductModel>;
 
 @Schema()
 export class ProductModel {
-	_id: string;
-
 	@Prop()
 	image: string;
 
@@ -38,17 +32,19 @@ export class ProductModel {
 	@Prop()
 	disAdvantages: string;
 
-	@Prop({ type: [String] })
+	@Prop([String])
 	categories: string[];
 
-	@Prop({ type: [String] })
+	@Prop([String])
 	tags: string[];
 
-	// @Prop({ type: [ProductCharacteristic], _id: false })
-	// characteristics: ProductCharacteristic[];
-
-	createdAt?: Date;
-	updatedAt?: Date;
+	@Prop()
+	characteristics: [
+		{
+			name: string;
+			value: string;
+		},
+	];
 }
 
 export const ProductSchema = SchemaFactory.createForClass(ProductModel);
