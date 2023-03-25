@@ -38,7 +38,7 @@ export class TopPageModel {
 	@Prop({ unique: true })
 	alias: string;
 
-	@Prop()
+	@Prop({ text: true })
 	title: string;
 
 	@Prop()
