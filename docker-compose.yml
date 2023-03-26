@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  nest-crud:
+    image: nest-crud:latest
+    container_name: nest-crud
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./.env:/opt/app/.env

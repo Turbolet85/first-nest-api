@@ -6,23 +6,22 @@ export const getMongoConfig = async (
 ): Promise<MongooseModuleOptions> => {
 	return {
 		uri: getMongoString(configService),
-		...getMongoOptions(),
+		// ...getMongoOptions(),
 	};
 };
 
 const getMongoString = (configService: ConfigService) =>
-	'mongodb://' +
+	'mongodb+srv://' +
 	configService.get('MONGO_LOGIN') +
 	':' +
 	configService.get('MONGO_PASSWORD') +
 	'@' +
-	configService.get('MONGO_HOST') +
-	':' +
-	configService.get('MONGO_PORT') +
-	'/' +
-	configService.get('MONGO_AUTH_DB');
+	configService.get('MONGO_HOST');
+// +
+// '/' +
+// configService.get('MONGO_AUTH_DB');
 
-const getMongoOptions = () => ({
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+// const getMongoOptions = () => ({
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// });
