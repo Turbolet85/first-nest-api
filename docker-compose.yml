@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   nest-crud:
-    image: ghcr.io/turbolet85/first-nest-api/first-nest-api:develop
+    image: docker.pkg.github.com/turbolet85/first-nest-api/first-nest-api:develop
     container_name: nest-crud
     restart: always
     ports:
